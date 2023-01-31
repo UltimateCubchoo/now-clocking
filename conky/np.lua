@@ -46,6 +46,16 @@ ${color #fff}${font Gotham Book:pixelsize=15}
 ${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec playerctl -p vlc metadata artist}${font Gotham:style=bold:pixelsize=10}
 ${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec playerctl -p vlc metadata title}
 
+${else}${if_match "" != "${exec playerctl -p rhythmbox status}"}${color #fff}${font Gotham Book:pixelsize=18}NOW PLAYING:
+    ${color #fff}${font Gotham Book:pixelsize=15}
+    ${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec playerctl -p rhythmbox metadata artist}${font Gotham:style=bold:pixelsize=10}
+    ${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec playerctl -p rhythmbox metadata title}
+
+${else}${if_match "" != "${exec playerctl -p audacious status}"}${color #fff}${font Gotham Book:pixelsize=18}NOW PLAYING:
+    ${color #fff}${font Gotham Book:pixelsize=15}
+    ${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec playerctl -p audacious metadata artist}${font Gotham:style=bold:pixelsize=10}
+    ${color #fff}${font Gotham Book:pixelsize=44}           ${font Gotham Book:pixelsize=23}${exec playerctl -p audacious metadata title}
+
 ${else}${if_match "" != "${exec playerctl -p Lollypop status}"}${color #fff}${font Gotham Book:pixelsize=18}NOW PLAYING:
 ${color #fff}${font Gotham Book:pixelsize=15}
 ${color #fff}${font Gotham:style=bold:pixelsize=44}           ${font Gotham:style=bold:pixelsize=46}${exec playerctl -p Lollypop metadata artist}${font Gotham:style=bold:pixelsize=10}

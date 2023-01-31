@@ -42,7 +42,21 @@ elif [ "$source" = Lollypop ]; then
         exit 1
     fi
 
-    url="$(playerctl -p Lollypop metadata mpris:artUrl)"
+    url="$(playerctl -p lollypop metadata mpris:artUrl)"
+elif [ "$source" = Rhythmbox ]; then
+    if ! command -v playerctl >/dev/null; then
+        echo "Missing playerctl!"
+        exit 1
+    fi
+
+      url="$(playerctl -p rhythmbox metadata mpris:artUrl)"
+elif [ "$source" = Audacious ]; then
+    if ! command -v playerctl >/dev/null; then
+        echo "Missing playerctl!"
+        exit 1
+    fi
+
+    url="$(playerctl -p audacious metadata mpris:artUrl)"
 elif [ "$source" = cmus ]; then
     if ! command -v cmus-remote >/dev/null; then
         echo "Missing cmus-remote!"
